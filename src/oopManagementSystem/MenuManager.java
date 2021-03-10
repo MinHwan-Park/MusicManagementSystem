@@ -8,8 +8,6 @@ public class MenuManager {
 		System.out.println("3. Edit Music");
 		System.out.println("4. View Music");
 		System.out.println("5. Exit");
-	
-
 	}
 
 }
