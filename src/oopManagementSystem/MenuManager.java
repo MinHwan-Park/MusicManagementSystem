@@ -24,7 +24,7 @@ public class MenuManager {
 					int number = input.nextInt();
 					System.out.print("Title of Music : ");
 					String title = input.next();
-					System.out.print("Artisit : ");
+					System.out.println("Artisit : ");
 					String artisit = input.next();
 					break;
 				case 2:
@@ -43,7 +43,7 @@ public class MenuManager {
 					System.out.println("Now" + p_title + "is playing.");
 					break;
 				case 5:
-					
+					//show menu
 				case 6:	
 					break;
 			}
