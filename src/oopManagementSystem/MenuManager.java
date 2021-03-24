@@ -20,27 +20,16 @@ public class MenuManager {
 			num = input.nextInt();
 			switch(num) {
 				case 1:
-					System.out.print("Number of Music : ");
-					int number = input.nextInt();
-					System.out.print("Title of Music : ");
-					String title = input.next();
-					System.out.println("Artisit : ");
-					String artisit = input.next();
+					addMusic();
 					break;
 				case 2:
-					System.out.print("Which Music you want to delete? Write Title of Music : ");
-					String d_title = input.next();
-					System.out.println(d_title + "is deleted.");
+					deleteMusic();
 					break;
 				case 3:
-					System.out.print("Which Music you want to edit? Write Title of Music : ");
-					String e_title = input.next();
-					System.out.println(e_title + "is edited.");
+					editMusic();
 					break;
 				case 4:
-					System.out.print("Which Music you want to play? Write Title of Music : ");
-					String p_title = input.next();
-					System.out.println("Now" + p_title + "is playing.");
+					playMusic();
 					break;
 				case 5:
 					//show menu
@@ -49,6 +38,38 @@ public class MenuManager {
 			}
 			
 		}
-	}
 
+	}
+	public static void addMusic() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Number of Music : ");
+		int number = input.nextInt();
+		System.out.print("Title of Music : ");
+		String title = input.next();
+		System.out.print("Artist : ");
+		String artist = input.next();
+	}
+	
+	public static void deleteMusic() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Which Music you want to delete? Write Title of Music : ");
+		String d_title = input.next();
+		System.out.println(d_title + "is deleted.");
+	}
+	
+	public static void editMusic() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Which Music you want to edit? Write Title of Music : ");
+		String e_title = input.next();
+		System.out.println(e_title + "is edited.");
+	}
+	
+	public static void playMusic() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Which Music you want to play? Write Title of Music : ");
+		String p_title = input.next();
+		System.out.println("Now " + p_title + " is playing.");
+		
+	}
+	
 }
