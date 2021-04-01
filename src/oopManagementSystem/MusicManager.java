@@ -20,33 +20,50 @@ public class MusicManager {
 	}
 	
 	public void deleteMusic() {
-		System.out.print("Which Music you want to delete? Write Title of Music : ");
-		String d_title = input.next();
+		System.out.print("Which Music you want to delete? Write Number of Music : ");
+		int number = input.nextInt();
 		if(music == null) {
-			System.out.println(d_title + " has not been registered.");
+			System.out.println("The music has not been registered.");
 			return;
 		}
-		if(d_title == music.title) {
+		if(number == music.number) {
 			music = null;
-			System.out.println(d_title + " is deleted.");
+			System.out.println("The music is deleted.");
 		}
 	}
 	
 	public void editMusic() {
-		System.out.print("Which Music you want to edit? Write Title of Music : ");
-		String e_title = input.next();
-		if(e_title == music.title) {
+		System.out.print("Which Music you want to edit? Write Number of Music : ");
+		int number = input.nextInt();
+		if(music == null) {
+			System.out.println("The music has not been registered.");
+			return;
+		}
+		if(number == music.number) {
 			music = null;
-			System.out.println(e_title + "is edited.");
+			System.out.println("The music is edited.");
 		}
 	}
 	
 	public void playMusic() {
-		System.out.print("Which Music you want to play? Write Title of Music : ");
-		String p_title = input.next();
-		if(p_title == music.title) {
+		System.out.print("Which Music you want to play? Write Number of Music : ");
+		int number = input.nextInt();
+		if(music == null) {
+			System.out.println("The music has not been registered.");
+			return;
+		}
+		if(number == music.number) {
 			music = null;
-			System.out.println("Now " + p_title + " is playing.");
+			System.out.println("Now the music is playing.");
+		}
+		
+	}
+	
+	public void viewMusic() {
+		System.out.print("Which Music you want to view? Write Number of Music : ");
+		int number = input.nextInt();
+		if(number == music.number) {
+			music.printInfo();
 		}
 		
 	}

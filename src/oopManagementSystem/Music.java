@@ -15,7 +15,7 @@ public class Music {
 	}
 	
 	public void printInfo() {
-		System.out.println("Number of Music : " + number + "Title of Music : " + title + "Artist : " + artist);
+		System.out.println("Number of Music : " + number + " Title of Music : " + title + " Artist : " + artist);
 	}
 
 }

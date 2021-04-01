@@ -13,8 +13,9 @@ public class MenuManager {
 			System.out.println("2. Delete Music");
 			System.out.println("3. Edit Music");
 			System.out.println("4. Play Music");
-			System.out.println("5. Exit");
-			System.out.print("Select one number between 1~5 : ");
+			System.out.println("5. View Music");
+			System.out.println("6. Exit");
+			System.out.print("Select one number between 1~6 : ");
 			num = input.nextInt();
 			switch(num) {
 				case 1:
@@ -29,7 +30,10 @@ public class MenuManager {
 				case 4:
 					musicmanager.playMusic();
 					break;
-				case 5:	
+				case 5:
+					musicmanager.viewMusic();
+					break;
+				case 6:	
 					break;
 			}
 			
