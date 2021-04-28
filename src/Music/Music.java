@@ -7,14 +7,26 @@ public class Music {
 	protected int number;
 	protected String title;
 	protected String artist;
+	protected String arranger;
 	
 	public Music() {
+	}
+	
+	public Music(MusicKind kind) {
+		this.kind = kind;
 	}
 
 	public Music(int number, String title, String artist) {
 		this.number = number;
 		this.title = title;
 		this.artist = artist;
+	}
+	
+	public Music(int number, String title, String artist, String arranger) {
+		this.number = number;
+		this.title = title;
+		this.artist = artist;
+		this.arranger = arranger;
 	}
 	
 	public MusicKind getKind() {
@@ -49,8 +61,33 @@ public class Music {
 		this.artist = artist;
 	}
 	
+	public String getArranger() {
+		return arranger;
+	}
+
+	public void setArranger(String arranger) {
+		this.arranger = arranger;
+	}
+	
 	public void printInfo() {
-		System.out.println("Number of Music : " + number + " Title of Music : " + title + " Artist : " + artist);
+		String mkind = "none";
+		switch(this.kind) {
+		case Pop:
+			mkind = "Pop";
+			break;
+		case Rock:
+			mkind = "Rock";
+			break;
+		case Ballad:
+			mkind = "Ballad";
+			break;
+		case Hiphop:
+			mkind = "Hiphop";
+			break;
+		default:
+			
+		}
+		System.out.println("Kind : " + mkind + "Number of Music : " + number + " Title of Music : " + title + " Artist : " + artist + "Arranger : " + arranger);
 	}
 	
 	public void getMusicInput(Scanner input) {
@@ -63,6 +100,9 @@ public class Music {
 		System.out.print("Artist : ");
 		String artist = input.next();
 		this.setArtist(artist);
+		System.out.print("Arranger : ");
+		String arranger = input.next();
+		this.setArranger(arranger);
 	}
 
 }

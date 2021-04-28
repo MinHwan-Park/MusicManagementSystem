@@ -3,7 +3,9 @@ package oopManagementSystem;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Music.HiphopMusic;
 import Music.Music;
+import Music.MusicKind;
 import Music.RockMusic;
 
 public class MusicManager {
@@ -20,18 +22,18 @@ public class MusicManager {
 			System.out.println("1. Pop");
 			System.out.println("2. Rock");
 			System.out.println("3. Ballad");
-			System.out.println("4. Rap");
-			System.out.print("Select Music Kind : ");
+			System.out.println("4. Hiphop");
+			System.out.print("Select num 1~4 for Music Kind : ");
 			kind = input.nextInt();
 			if (kind == 1) {
-				music = new Music();
+				music = new Music(MusicKind.Pop);
 				music.getMusicInput(input);
 				musics.add(music);
 				break;
 			}
 			
 			else if (kind == 2) {
-				music = new RockMusic();
+				music = new RockMusic(MusicKind.Rock);
 				music.getMusicInput(input);
 				musics.add(music);
 				break;
@@ -45,7 +47,7 @@ public class MusicManager {
 			}
 			
 			else if (kind == 4) {
-				music = new Music();
+				music = new HiphopMusic(MusicKind.Hiphop);
 				music.getMusicInput(input);
 				musics.add(music);
 				break;

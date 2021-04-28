@@ -4,5 +4,5 @@ public enum MusicKind {
 	Pop,
 	Rock,
 	Ballad,
-	Rap
+	Hiphop
 }

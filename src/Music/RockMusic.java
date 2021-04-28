@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class RockMusic extends Music {
 	
+	public RockMusic(MusicKind kind) {
+		super(kind);
+	}
+	
 	public void getMusicInput(Scanner input) {
 		System.out.print("Number of Music : ");
 		int number = input.nextInt();
