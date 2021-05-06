@@ -2,7 +2,7 @@ package Music;
 
 import java.util.Scanner;
 
-public class HiphopMusic extends Music {
+public class HiphopMusic extends Music implements MusicInput {
 	
 	public HiphopMusic(MusicKind kind) {
 		super(kind);

@@ -2,9 +2,9 @@ package Music;
 
 import java.util.Scanner;
 
-public class RockMusic extends Music implements MusicInput {
+public class PopMusic extends Music implements MusicInput {
 	
-	public RockMusic(MusicKind kind) {
+	public PopMusic(MusicKind kind) {
 		super(kind);
 	}
 	
@@ -15,24 +15,12 @@ public class RockMusic extends Music implements MusicInput {
 		System.out.print("Title of Music : ");
 		String title = input.next();
 		this.setTitle(title);
-		
-		char answer = 'x';
-		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {
-			System.out.print("Did it has Artist? (Y/N)");
-			answer = input.next().charAt(0);
-			if (answer == 'y' || answer == 'Y') {
-				System.out.print("Artist : ");
-				String artist = input.next();
-				this.setArtist(artist);
-				break;
-			}
-			else if (answer == 'n' || answer == 'N') {
-				this.setArtist("");
-				break;
-			}
-			else {
-			}
-		}
+		System.out.print("Artist : ");
+		String artist = input.next();
+		this.setArtist(artist);
+		System.out.print("Arranger : ");
+		String arranger = input.next();
+		this.setArranger(arranger);
 	}
 	
 	public void printInfo() {
@@ -55,4 +43,5 @@ public class RockMusic extends Music implements MusicInput {
 		}
 		System.out.println("Kind : " + mkind + "Number of Music : " + number + " Title of Music : " + title + " Artist : " + artist + "Arranger : " + arranger);
 	}
+
 }

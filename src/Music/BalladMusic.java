@@ -2,7 +2,7 @@ package Music;
 
 import java.util.Scanner;
 
-public class BalladMusic extends Music {
+public class BalladMusic extends Music implements MusicInput {
 	
 	protected String album;
 	
