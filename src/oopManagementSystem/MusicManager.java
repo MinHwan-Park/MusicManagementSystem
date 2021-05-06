@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import Music.BalladMusic;
 import Music.HiphopMusic;
-import Music.Music;
 import Music.MusicInput;
 import Music.MusicKind;
 import Music.PopMusic;
