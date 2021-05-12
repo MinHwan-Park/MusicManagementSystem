@@ -1,6 +1,10 @@
 package Music;
 
-public abstract class Music {
+import java.util.Scanner;
+
+import exceptions.ArtistFormatException;
+
+public abstract class Music implements MusicInput{
 	protected MusicKind kind = MusicKind.Pop;
 	protected int number;
 	protected String title;
@@ -55,7 +59,10 @@ public abstract class Music {
 		return artist;
 	}
 
-	public void setArtist(String artist) {
+	public void setArtist(String artist) throws ArtistFormatException {
+		if(!artist.contains(".") && !artist.equals("")) {
+			throw new ArtistFormatException();
+		}
 		this.artist = artist;
 	}
 	
@@ -69,4 +76,55 @@ public abstract class Music {
 	 
 	public abstract void printInfo();
 
+	
+	public void setMusicNumber(Scanner input) {
+		System.out.print("Music Number : ");
+		int number = input.nextInt();
+		this.setNumber(number);
+	}
+	
+	public void setMusicTitle(Scanner input) {
+		System.out.print("Music Title : ");
+		String title = input.next();
+		this.setTitle(title);
+	}
+	
+	public void setMusicArtist(Scanner input) {
+		String artist = "";
+		while (!artist.contains(".")) {
+			System.out.print("Music Artist : ");
+			artist = input.next();
+			try {
+				this.setArtist(artist);
+			} catch(ArtistFormatException e) {
+				System.out.println("Incorrect Artist Format. Put Artist's name that not contains .");
+			}
+		}
+	}
+	
+	public void setMusicArranger(Scanner input) {
+		System.out.print("Arranger : ");
+		String arranger = input.next();
+		this.setArranger(arranger);
+	}
+	
+	public String getKindString() {
+		String mkind = "none";
+		switch(this.kind) {
+		case Pop:
+			mkind = "Pop";
+			break;
+		case Rock:
+			mkind = "Rock";
+			break;
+		case Ballad:
+			mkind = "Ballad";
+			break;
+		case Hiphop:
+			mkind = "Hiphop";
+			break;
+		default:
+		}
+		return mkind;
+	}
 }

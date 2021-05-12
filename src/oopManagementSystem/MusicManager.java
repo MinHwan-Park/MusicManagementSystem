@@ -1,6 +1,7 @@
 package oopManagementSystem;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Music.BalladMusic;
@@ -17,53 +18,69 @@ public class MusicManager {
 		this.input = input;
 	}
 	
+	
 	public void addMusic() {
 		int kind = -1;
 		MusicInput musicInput;
-		while (kind != 1 && kind != 2 && kind != 3 && kind != 4) {
-			System.out.println("1. Pop");
-			System.out.println("2. Rock");
-			System.out.println("3. Ballad");
-			System.out.println("4. Hiphop");
-			System.out.print("Select num 1~4 for Music Kind : ");
-			kind = input.nextInt();
-			if (kind == 1) {
-				musicInput = new PopMusic(MusicKind.Pop);
-				musicInput.getMusicInput(input);
-				musics.add(musicInput);
-				break;
+		while (kind < 1 || kind > 4) {
+			try {
+				System.out.println("1. Pop");
+				System.out.println("2. Rock");
+				System.out.println("3. Ballad");
+				System.out.println("4. Hiphop");
+				System.out.print("Select num 1~4 for Music Kind : ");
+				kind = input.nextInt();
+				if (kind == 1) {
+					musicInput = new PopMusic(MusicKind.Pop);
+					musicInput.getMusicInput(input);
+					musics.add(musicInput);
+					break;
+				}
+				
+				else if (kind == 2) {
+					musicInput = new RockMusic(MusicKind.Rock);
+					musicInput.getMusicInput(input);
+					musics.add(musicInput);
+					break;
+				}
+				
+				else if (kind == 3) {
+					musicInput = new BalladMusic(MusicKind.Ballad);
+					musicInput.getMusicInput(input);
+					musics.add(musicInput);
+					break;
+				}
+				
+				else if (kind == 4) {
+					musicInput = new HiphopMusic(MusicKind.Hiphop);
+					musicInput.getMusicInput(input);
+					musics.add(musicInput);
+					break;
+				}
+				
+				else {
+					System.out.print("Select Music Kind between 1 ~ 4: ");
+				}
+		}
+		catch(InputMismatchException e) {
+			System.out.println("Please put an integer 1~4");
+			if (input.hasNext()) {
+				input.next();
 			}
-			
-			else if (kind == 2) {
-				musicInput = new RockMusic(MusicKind.Rock);
-				musicInput.getMusicInput(input);
-				musics.add(musicInput);
-				break;
-			}
-			
-			else if (kind == 3) {
-				musicInput = new BalladMusic(MusicKind.Ballad);
-				musicInput.getMusicInput(input);
-				musics.add(musicInput);
-				break;
-			}
-			
-			else if (kind == 4) {
-				musicInput = new HiphopMusic(MusicKind.Hiphop);
-				musicInput.getMusicInput(input);
-				musics.add(musicInput);
-				break;
-			}
-			
-			else {
-				System.out.print("Select Music Kind between 1 ~ 4: ");
-			}
+			kind = -1;
+		}
 		}
 	}
-	
+
+
 	public void deleteMusic() {
 		System.out.print("Which Music you want to delete? Write Number of Music : ");
 		int number = input.nextInt();
+		int index = findIndex(number);
+		removefromMusic(index, number);
+	}
+	
+	public int findIndex(int number) {
 		int index = -1;
 		for(int i = 0; i<musics.size(); i++) {
 			if(number == musics.get(i).getNumber()) {
@@ -71,14 +88,18 @@ public class MusicManager {
 				break;
 			}
 		}
-		
+		return index;
+	}
+	
+	public int removefromMusic(int index, int number) {
 		if(index >= 0) {
 			musics.remove(index);
 			System.out.println("The music " + number + " is deleted.");
+			return 1;
 		}
 		else {
 			System.out.println("The music has not been registered.");
-			return;
+			return -1;
 		}
 	}
 	
@@ -86,32 +107,23 @@ public class MusicManager {
 		System.out.print("Which Music you want to edit? Write Number of Music : ");
 		int musicNumber = input.nextInt();
 		for(int i = 0; i<musics.size(); i++) {
-			MusicInput musicInput = musics.get(i);
-			if(musicNumber == musicInput.getNumber()) {
+			MusicInput music = musics.get(i);
+			if(musicNumber == music.getNumber()) {
 				int num = -1;
 				while(num != 4) {
-					System.out.println("==Edit Menu==");
-					System.out.println("1. Edit Number");
-					System.out.println("2. Edit Title");
-					System.out.println("3. Edit Artist");
-					System.out.println("4. Exit");
+					showEditMenu();
 					num = input.nextInt();
-					if (num == 1) {
-						System.out.print("Music Number : ");
-						int number = input.nextInt();
-						musicInput.setNumber(number);
-					}
-					else if (num == 2) {
-						System.out.print("Music Title : ");
-						String title = input.next();
-						musicInput.setTitle(title);
-					}
-					else if (num == 3) {
-						System.out.print("Music Artist : ");
-						String artist = input.next();
-						musicInput.setArtist(artist);
-					}
-					else {
+					switch(num) {
+					case 1:
+						music.setMusicNumber(input);
+						break;
+					case 2:
+						music.setMusicTitle(input);
+						break;
+					case 3:
+						music.setMusicArtist(input);
+						break;
+					default:
 						continue;
 					}
 				}
@@ -145,6 +157,14 @@ public class MusicManager {
 		for(int i = 0; i<musics.size(); i++) {
 			musics.get(i).printInfo();
 		}
+	}
+	
+	public void showEditMenu() {
+		System.out.println("==Edit Menu==");
+		System.out.println("1. Edit Number");
+		System.out.println("2. Edit Title");
+		System.out.println("3. Edit Artist");
+		System.out.println("4. Exit");
 	}
 
 }
