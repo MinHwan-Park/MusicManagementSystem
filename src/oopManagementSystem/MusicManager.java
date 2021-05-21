@@ -1,5 +1,6 @@
 package oopManagementSystem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -11,9 +12,13 @@ import Music.MusicKind;
 import Music.PopMusic;
 import Music.RockMusic;
 
-public class MusicManager {
+public class MusicManager implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3178683728047567387L;
 	ArrayList<MusicInput> musics = new ArrayList<MusicInput>();
-	Scanner input;
+	transient Scanner input;
 	MusicManager(Scanner input){
 		this.input = input;
 	}

@@ -1,0 +1,6 @@
+5월 21, 2021 2:39:03 오후 Log.EventLogger log
+INFO: add a music
+5월 21, 2021 2:39:22 오후 Log.EventLogger log
+INFO: edit a music
+5월 21, 2021 2:39:25 오후 Log.EventLogger log
+INFO: view a music
