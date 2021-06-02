@@ -8,6 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import GUI.WindowFrame;
 import Log.EventLogger;
 
 public class MenuManager {
@@ -19,6 +21,8 @@ public class MenuManager {
 		if (musicmanager == null) {
 			musicmanager = new MusicManager(input);
 		}
+		
+		WindowFrame frame = new WindowFrame(musicmanager);
 		selectMenu(input, musicmanager);
 		putObject(musicmanager, "musicmanager.ser");
 	}

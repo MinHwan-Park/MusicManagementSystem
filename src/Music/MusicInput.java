@@ -10,9 +10,17 @@ public interface MusicInput {
 	
 	public void setNumber(int number);
 	
+	public String getTitle();
+	
 	public void setTitle(String title);
 	
 	public void setArtist(String artist) throws ArtistFormatException;
+	
+	public String getArtist();
+	
+	public void setArranger(String arranger);
+	
+	public String getArranger();
 	
 	public void getMusicInput(Scanner input);
 
@@ -25,5 +33,6 @@ public interface MusicInput {
 	public void setMusicArtist(Scanner input);
 	
 	public void setMusicArranger(Scanner input);
-	
+
+
 }

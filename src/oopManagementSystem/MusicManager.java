@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import Music.BalladMusic;
 import Music.HiphopMusic;
+import Music.Music;
 import Music.MusicInput;
 import Music.MusicKind;
 import Music.PopMusic;
@@ -162,6 +163,15 @@ public class MusicManager implements Serializable {
 		for(int i = 0; i<musics.size(); i++) {
 			musics.get(i).printInfo();
 		}
+		
+	}
+	
+	public int size() {
+		return musics.size();
+	}
+	
+	public MusicInput get(int index) {
+		return (Music) musics.get(index);
 	}
 	
 	public void showEditMenu() {
