@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Listener.ButtonViewListener;
-import Listener.ButtonAddListener;
+import Listener.ButtonViewerListener;
+import Listener.ButtonAdderListener;
 
 public class MenuSelection extends JPanel {
 	
@@ -29,8 +29,8 @@ public class MenuSelection extends JPanel {
 		JButton button5 = new JButton("View Music");
 		JButton button6 = new JButton("Exit");
 		
-		button1.addActionListener(new ButtonAddListener(frame));
-		button5.addActionListener(new ButtonViewListener(frame));
+		button1.addActionListener(new ButtonAdderListener(frame));
+		button5.addActionListener(new ButtonViewerListener(frame));
 		
 		panel1.add(label);
 		panel2.add(button1);

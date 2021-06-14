@@ -24,6 +24,15 @@ public class MusicManager implements Serializable {
 		this.input = input;
 	}
 	
+	public void addMusic(String number, String title, String artist, String arranger) {
+		MusicInput musicInput = new PopMusic(MusicKind.Pop);
+		musicInput.getMusicInput(input);
+		musics.add(musicInput);
+	}
+	
+	public void addMusic(MusicInput musicInput) {
+		musics.add(musicInput);
+	}
 	
 	public void addMusic() {
 		int kind = -1;

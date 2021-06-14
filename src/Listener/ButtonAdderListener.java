@@ -5,22 +5,22 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import GUI.MusicViewer;
+import GUI.MusicAdder;
 import GUI.WindowFrame;
 
-public class ButtonViewListener implements ActionListener {
+public class ButtonAdderListener implements ActionListener {
 	
 	WindowFrame frame;
 
-	public ButtonViewListener(WindowFrame frame) {
+	public ButtonAdderListener(WindowFrame frame) {
 		this.frame = frame;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton b = (JButton)e.getSource();
-		MusicViewer viewer = frame.getMusicviewer();
-		frame.setupPanel(viewer);
+		MusicAdder adder = frame.getMusicadder();
+		frame.setupPanel(adder);
 	}
 
 }
